@@ -1,4 +1,4 @@
-# 🧱 Brick Breaker
+# Brick Breaker
 
 A **2D arcade-style Brick Breaker game** developed using **Unity and C#** as an internship project.
 
