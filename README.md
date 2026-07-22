@@ -1,185 +1,114 @@
-# Brick Breaker
+<div align="center">
 
-A **2D arcade-style Brick Breaker game** developed using **Unity and C#** as an internship project.
+# 🧱 Brick Breaker
+### Physics-Based Arcade Game — Built in Unity (C#)
 
-The player controls a paddle to keep the ball in play and destroy all bricks on the screen. The game includes multiple levels, score tracking, level progression, restart functionality, and interactive game UI.
+![Unity](https://img.shields.io/badge/Unity-2D-black?logo=unity)
+![C#](https://img.shields.io/badge/C%23-Gameplay-239120?logo=csharp&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
----
+A fully playable 2D arcade game recreating the classic brick-breaking genre with custom physics, level progression, and a complete UI/UX loop — from menu to game over.
 
-## 🎮 Gameplay
+[Live Demo](#) · [Gameplay Video](#) · [Report Bug](#) · [Repo](https://github.com/jeswanth90630/brickbreaker)
 
-The objective is simple:
-
-* Control the paddle and prevent the ball from falling.
-* Bounce the ball toward the bricks.
-* Destroy all bricks to complete the level.
-* Progress through different levels with changing layouts.
-* Try to achieve the highest possible score.
+</div>
 
 ---
 
-## ✨ Key Features
+## 📌 Why This Project
 
-* 🎯 Classic brick-breaking gameplay
-* 🕹️ Smooth paddle movement
-* ⚽ Ball movement and collision physics
-* 🧱 Brick collision and destruction system
-* 🏆 Real-time score tracking
-* ❤️ Player life/game-state management
-* 🎮 Multiple playable levels
-* 🔄 Level progression system
-* ✅ Level Complete screen
-* ⏭️ Next Level functionality
-* 🔁 Restart functionality
-* 🚪 Exit option
-* 🎨 Custom game UI and level layouts
+Most tutorials stop at "ball bounces off paddle." This build goes further — a working **level system with progression, scoring, and win/loss states**, built to understand how a game holds together end-to-end, not just one mechanic in isolation.
 
 ---
 
-## 🎥 Gameplay Preview
+## 🎮 Core Systems
 
-The gameplay demonstrates the complete game flow:
-
-**Start Game → Control Paddle → Break Bricks → Complete Level → View Score → Progress to Next Level**
-
-> Add your gameplay video or GIF here to give recruiters a quick preview of the game.
+| System               | Description                                                                          |
+|:---------------------|:--------------------------------------------------------------------------------------|
+| **Paddle Controller** | Smooth, frame-rate-independent movement mapped to arrow-key input                    |
+| **Ball Physics**      | Custom collision response — bounce angle reacts to paddle contact point               |
+| **Brick Manager**     | Tracks brick state across the grid, updates score and win-condition in real time      |
+| **Level Manager**     | Loads distinct brick layouts per level, handles transitions and progression           |
+| **Game State Machine**| Governs flow: Start → Playing → Level Complete → Game Over → Restart                  |
+| **UI Layer**          | Live score, lives counter, level-complete screen with Next Level / Restart / Exit     |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology                 | Usage                                    |
-| -------------------------- | ---------------------------------------- |
-| **Unity**                  | Game development and scene management    |
-| **C#**                     | Gameplay logic and game systems          |
-| **Unity 2D Physics**       | Ball movement and collision handling     |
-| **TextMeshPro / Unity UI** | Score and game interface                 |
-| **Git**                    | Version control                          |
-| **GitHub**                 | Source-code hosting and project showcase |
+<div align="center">
+
+| Category         | Tools                                  |
+|:-----------------|:----------------------------------------|
+| Engine            | Unity                                   |
+| Language          | C#                                      |
+| Physics           | Unity 2D Physics Engine                 |
+| UI                | TextMeshPro / Unity UI                  |
+| Version Control   | Git, GitHub                             |
+
+</div>
 
 ---
 
-## 🎮 Controls
+## 📊 Project Snapshot
 
-| Control         | Action            |
-| --------------- | ----------------- |
-| `← Left Arrow`  | Move paddle left  |
-| `→ Right Arrow` | Move paddle right |
+<div align="center">
 
-Use the paddle to redirect the ball and destroy every brick in the level.
+| Metric              | Value                     |
+|:---------------------|:--------------------------|
+| Levels shipped        | [X] distinct layouts      |
+| Build duration         | May 2025 – July 2025      |
+| Development mode       | Solo (internship project) |
+| Core scripts           | Paddle, Ball, Brick, LevelManager, GameManager, UIManager |
+| Lines of C#             | ~[X]                      |
 
----
-
-## 🧩 Game Systems
-
-### Ball & Paddle System
-
-The paddle is controlled by the player while the ball uses collision-based movement to bounce between the paddle, walls, and bricks.
-
-### Brick System
-
-Bricks detect collisions with the ball and are removed when successfully hit, contributing to the player's score and level progression.
-
-### Score System
-
-The player's score increases as bricks are destroyed and is displayed when the level is completed.
-
-### Level Management
-
-The game contains multiple levels with different brick arrangements.
-
-After completing a level, the player can:
-
-* Continue to the **Next Level**
-* **Restart** the level
-* **Exit** the game
-
-### Level Completion
-
-When all required bricks are destroyed, the game displays a **Level Complete** screen containing the player's score and navigation options.
+</div>
 
 ---
 
-## 📂 Project Structure
+## 🧠 Engineering Decisions
 
-```text
-BrickBreaker/
-│
-├── Assets/
-│   ├── Scenes/
-│   ├── Scripts/
-│   ├── Sprites/
-│   ├── Audio/
-│   └── Prefabs/
-│
-├── Packages/
-├── ProjectSettings/
-├── .gitignore
-└── README.md
-```
-
-> The exact contents inside `Assets` may vary depending on the final Unity project organization.
+- **Collision-based bounce angle** instead of a fixed reflection — the ball's exit angle depends on where it hits the paddle, giving the player real control over shot placement.
+- **Centralized GameManager** as a single source of truth for score, lives, and level state — avoids scattered state across scripts.
+- **Event-driven UI updates** rather than per-frame polling, keeping the UI layer decoupled from gameplay logic.
 
 ---
 
-## 🚀 How to Run the Project
-
-1. Clone the repository:
+## 🚀 Getting Started
 
 ```bash
 git clone git@github.com:jeswanth90630/brickbreaker.git
 ```
 
-2. Open **Unity Hub**.
-
-3. Select **Add Project from Disk**.
-
-4. Choose the cloned `brickbreaker` folder.
-
-5. Open the project with a compatible Unity version.
-
-6. Open the starting scene.
-
-7. Click the **Play ▶** button in the Unity Editor.
+| Step | Action |
+|:-----|:-------|
+| 1 | Open Unity Hub → **Add Project from Disk** |
+| 2 | Select the cloned `brickbreaker` folder |
+| 3 | Open with Unity [version] or later |
+| 4 | Open the main scene under `Assets/Scenes` |
+| 5 | Press **Play ▶** |
 
 ---
 
-## 💡 What I Learned
+## 🔮 Roadmap
 
-Building this project helped me gain practical experience in:
-
-* Unity game development
-* C# scripting
-* 2D physics and collision detection
-* Player input handling
-* Game-state management
-* Score and level systems
-* Scene management
-* UI implementation
-* Debugging gameplay issues
-* Organizing a Unity project
-* Git and GitHub version control
+- [ ] Power-ups (multi-ball, paddle-extend, slow-motion)
+- [ ] Difficulty tiers with adaptive brick layouts
+- [ ] Persistent high-score leaderboard
+- [ ] WebGL deployment for browser play
+- [ ] Sound design pass
 
 ---
 
-## 🔮 Possible Future Improvements
-
-* Add power-ups and special abilities
-* Introduce different brick types
-* Add difficulty modes
-* Improve animations and visual effects
-* Add background music and enhanced sound effects
-* Add a high-score system
-* Add pause/settings menus
-* Create additional levels
-* Deploy a WebGL version for browser-based gameplay
-
----
+<div align="center">
 
 ## 👨‍💻 Developer
 
-**Divi Venkata Jeswanth Kumar**
+**D V Jeswanth Kumar**
+B.Tech Computer Science Engineering
 
-Developed as an **internship game-development project** using Unity and C#.
+[![GitHub](https://img.shields.io/badge/GitHub-jeswanth90630-181717?logo=github)](https://github.com/jeswanth90630)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&logoColor=white)](#)
 
-This project demonstrates practical experience in **gameplay programming, collision systems, UI development, level management, debugging, and game-state handling**.
+</div>
